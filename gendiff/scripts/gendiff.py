@@ -1,13 +1,18 @@
 import argparse
-def gendiff():
+def gendiff(fist_file, second_file):
     pass
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(prog="gendiff",
-                                     usage="%(prog)s [-h] fist_file, second_file",
+                                     usage="%(prog)s [-h] [-f FORMAT] fist_file, second_file",
                                      description= "Compares two configuration files and shows a difference.",
                                      )
     
+    parser.add_argument("-f", "--format", help="set format of output")
     parser.add_argument("first_file")
     parser.add_argument("second_file")
     args = parser.parse_args()
+    
+
+if __name__ == "__main__":
+    main()  
