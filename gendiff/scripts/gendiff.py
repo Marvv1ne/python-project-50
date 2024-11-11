@@ -1,17 +1,10 @@
-import argparse
+from pprint import pprint
+from .cli import args_parser
 from .parser import generate_diff
 
 def main():
-    parser = argparse.ArgumentParser(prog="gendiff",
-                                     usage="%(prog)s [-h] [-f FORMAT] fist_file, second_file",
-                                     description= "Compares two configuration files and shows a difference.",
-                                     )
-    
-    parser.add_argument("-f", "--format", help="set format of output")
-    parser.add_argument("first_file")
-    parser.add_argument("second_file")
-    args = parser.parse_args()
-    return generate_diff(args.first_file, args.second_file)
+    file1, file2 = args_parser()
+    pprint(generate_diff(file1, file2))
     
 
 if __name__ == "__main__":
