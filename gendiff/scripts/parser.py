@@ -4,7 +4,7 @@ from collections import ChainMap
 
 def json_reader(file_name):
     CURRENT_DIR = os.getcwd()
-    return json.load(open(f'{CURRENT_DIR}/{file_name}'))
+    return {str(k): str(v) for k,v in json.load(open(file_name)).items()}
 
 def check_difference(key, dict_1, dict_2):
     if key not in dict_2:
