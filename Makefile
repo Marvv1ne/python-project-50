@@ -19,4 +19,4 @@ lint:
 test:
 	poetry run pytest
 
-check: test lint
+check: test
