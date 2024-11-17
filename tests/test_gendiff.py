@@ -1,6 +1,6 @@
 import pytest
 import os
-from gendiff.scripts.parser import generate_diff
+from gendiff.scripts.gendiff import generate_diff
 
 data_1 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file1.json')
 data_2 = os.path.join(os.path.dirname(__file__), 'fixtures', 'file2.json')
