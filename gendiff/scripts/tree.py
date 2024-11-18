@@ -1,17 +1,22 @@
 from collections import ChainMap
 from .parser import converter
 
-def make_updated_leaf(key, old_value, new_value):
-    return {f"- {key}": converter(old_value), f"+ {key}": converter(new_value)}
+def make_leaf(old_value=None, new_value=None, status=None):
+    return {"old_value": old_value,
+            "new_value": new_value,
+            "status": status}
 
-def make_deleted_leaf(key, value):
-    return {f"- {key}": converter(value)}
+def make_updated_leaf(old_value, new_value):
+    return make_leaf(old_value=old_value, new_value=new_value, status="updated")
 
-def make_inserted_leaf(key, value):
-    return {f"+ {key}": converter(value)}
+def make_deleted_leaf(old_value):
+    return make_leaf(old_value=old_value, status="updated")
 
-def make_untouched_leaf(key, value):
-    return {f"  {key}": converter(value)}
+def make_inserted_leaf(new_value):
+    return make_leaf(new_value=new_value, status="inserted")
+
+def make_untouched_leaf(value):
+    return make_leaf(old_value=value, new_value=value, status="untouched")
 
 def make_branch(key, make_leaf):
     return {f"{key}": make_leaf}
@@ -21,15 +26,15 @@ def check_leaf(key, old_dict, new_dict):
     diff_new_old = new_dict.keys() - old_dict.keys()
     intersection = old_dict.keys() & new_dict.keys()
     if key in diff_old_new:
-        value = old_dict[key]
-        return make_deleted_leaf(key, value)
+        old_value = old_dict[key]
+        return {key: make_deleted_leaf(old_value)}
     elif key in diff_new_old:
-        value = new_dict[key]
-        return make_inserted_leaf(key, value)
+        new_value = new_dict[key]
+        return {key: make_inserted_leaf(new_value)}
     elif key in intersection:
         old_value = old_dict[key]
         new_value = new_dict[key]
-        return make_updated_leaf(key, old_value, new_value) if old_value != new_value else make_untouched_leaf(key, old_value)
+        return {key: make_updated_leaf(old_value, new_value)} if old_value != new_value else {key: make_untouched_leaf(old_value)}
     else:
         return "I dont know what to do sir!"
         
