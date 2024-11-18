@@ -3,6 +3,7 @@ from .cli import args_parser
 from .tree import make_tree
 from .parser import file_reader
 from pprint import pprint
+from .formater import stylish
 
 def generate_diff(first_file_name, second_file_name):
     old_dict = file_reader(first_file_name)
@@ -12,7 +13,7 @@ def generate_diff(first_file_name, second_file_name):
 def main():
     first_file, second_file = args_parser()
     diff = generate_diff(first_file, second_file)
-    pprint(diff, sort_dicts=False)   
+    print(stylish(diff))   
     
 
 if __name__ == "__main__":
