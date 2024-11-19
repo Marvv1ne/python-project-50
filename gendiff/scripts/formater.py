@@ -6,7 +6,7 @@ def stylish(tree, depth=1):
             result.append(f"  {key}: {dict_formater(value, spc, depth)}")
         elif value.get("type", None) == "branch":
             result.append(f"{spc*depth}  {key}: {{\n")
-            result.append(f"{stylish(value['children'], depth+2)}\n")
+            result.append(f"{stylish(value['children'], depth+2)}")
             result.append(f"{spc*depth}}}\n")
         elif value.get("type", None) == "leaf":
             result.append(f"{leaf_formater(key, value, spc, depth)}")
@@ -33,6 +33,6 @@ def dict_formater(data, spc, depth):
         return data
     res = ['{']
     for k, v in data.items():
-        res.append(f"\n{spc*depth}  {k}: {dict_formater(v, spc, depth+2)}\n")
-    res.append(f"{spc*(depth-1)}}}")
+        res.append(f"\n{spc*depth}  {k}: {dict_formater(v, spc, depth+2)}")
+    res.append(f"\n{spc*(depth-1)}}}")
     return ''.join(res)
