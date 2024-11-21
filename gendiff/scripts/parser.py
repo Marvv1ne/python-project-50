@@ -12,6 +12,8 @@ def converter(value):
         return value
     elif type(value) == bool:
         return json_bools[value]
+    elif value == None:
+        return json_bools[value]
     elif type(value) == int:
         return str(value)
         
