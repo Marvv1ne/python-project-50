@@ -3,8 +3,9 @@ from .cli import args_parser
 from .tree import make_tree
 from .parser import file_reader
 from pprint import pprint
-from ..formaters.stylish_formater import stylish
-from ..formaters.plane_formater import plane
+from ..formaters.stylish_formater import stylish_formater
+from ..formaters.plane_formater import plane_formater
+from ..formaters.json_formater import json_formater
 
 
 def generate_diff(first_file_name, second_file_name, format):
@@ -13,9 +14,11 @@ def generate_diff(first_file_name, second_file_name, format):
     tree = make_tree(old_dict, new_dict)
     match format:
         case "stylish":
-            return stylish(tree)
+            return stylish_formater(tree)
         case "plane":
-            return plane(tree)
+            return plane_formater(tree)
+        case "json":
+            return json_formater(tree)
     
 
 def main():
