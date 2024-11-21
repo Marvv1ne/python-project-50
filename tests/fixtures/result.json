@@ -1,0 +1,122 @@
+{
+    "common": {
+        "children": {
+            "follow": {
+                "old_value": null,
+                "new_value": false,
+                "status": "inserted",
+                "type": "leaf"
+            },
+            "setting1": {
+                "old_value": "Value 1",
+                "new_value": "Value 1",
+                "status": "untouched",
+                "type": "leaf"
+            },
+            "setting2": {
+                "old_value": 200,
+                "new_value": null,
+                "status": "deleted",
+                "type": "leaf"
+            },
+            "setting3": {
+                "old_value": true,
+                "new_value": null,
+                "status": "updated",
+                "type": "leaf"
+            },
+            "setting4": {
+                "old_value": null,
+                "new_value": "blah blah",
+                "status": "inserted",
+                "type": "leaf"
+            },
+            "setting5": {
+                "old_value": null,
+                "new_value": {
+                    "key5": "value5"
+                },
+                "status": "inserted",
+                "type": "leaf"
+            },
+            "setting6": {
+                "children": {
+                    "doge": {
+                        "children": {
+                            "wow": {
+                                "old_value": "",
+                                "new_value": "so much",
+                                "status": "updated",
+                                "type": "leaf"
+                            }
+                        },
+                        "type": "branch"
+                    },
+                    "key": {
+                        "old_value": "value",
+                        "new_value": "value",
+                        "status": "untouched",
+                        "type": "leaf"
+                    },
+                    "ops": {
+                        "old_value": null,
+                        "new_value": "vops",
+                        "status": "inserted",
+                        "type": "leaf"
+                    }
+                },
+                "type": "branch"
+            }
+        },
+        "type": "branch"
+    },
+    "group1": {
+        "children": {
+            "baz": {
+                "old_value": "bas",
+                "new_value": "bars",
+                "status": "updated",
+                "type": "leaf"
+            },
+            "foo": {
+                "old_value": "bar",
+                "new_value": "bar",
+                "status": "untouched",
+                "type": "leaf"
+            },
+            "nest": {
+                "old_value": {
+                    "key": "value"
+                },
+                "new_value": "str",
+                "status": "updated",
+                "type": "leaf"
+            }
+        },
+        "type": "branch"
+    },
+    "group2": {
+        "old_value": {
+            "abc": 12345,
+            "deep": {
+                "id": 45
+            }
+        },
+        "new_value": null,
+        "status": "deleted",
+        "type": "leaf"
+    },
+    "group3": {
+        "old_value": null,
+        "new_value": {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
+            },
+            "fee": 100500
+        },
+        "status": "inserted",
+        "type": "leaf"
+    }
+}
