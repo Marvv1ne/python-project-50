@@ -2,6 +2,7 @@
 __pycache__
 dist/
 *.pyc
+.vscode/
 .venv/
 .coverage
 coverage.xml
