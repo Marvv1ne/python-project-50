@@ -17,7 +17,7 @@ publish:
 package-install:
 		pipx install dist/*.whl
 
-llint:
+lint:
 		poetry run flake8 gendiff
 
 selfcheck:
@@ -27,4 +27,6 @@ check: selfcheck test lint
 
 build: check
 		poetry build
+
+.PHONY: install test lint selfcheck check build
 
