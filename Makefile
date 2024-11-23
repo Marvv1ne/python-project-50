@@ -19,6 +19,9 @@ lint:
 test:
 	poetry run pytest
 
+test-coverage:
+		poetry run pytest --cov=gendiff --cov-report xml
+
 check: test lint
 
 full_ install: install build check publish package-install
