@@ -40,8 +40,7 @@ def type_formater(value):
         return "[complex value]"
     elif value in ("null", "true", "false"):
         return value
-    elif value.isdigit():
+    elif isinstance(value, int):
         return value
-    elif value.isalnum():
+    elif isinstance(value, str):
         return f"'{value}'"
-    
