@@ -14,12 +14,12 @@ correct_json_data_3 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'result_3_4
 @pytest.mark.parametrize("data_1, data_2, format, result",
                          [(data_3_json, data_4_json, "stylish", correct_stylish_data_3),
                           (data_3_yml, data_4_yml, "stylish", correct_stylish_data_3),
-                          (data_3_json, data_4_json, "plane", correct_plane_data_3),
-                          (data_3_yml, data_4_yml, "plane", correct_plane_data_3),
+                          (data_3_json, data_4_json, "plain", correct_plane_data_3),
+                          (data_3_yml, data_4_yml, "plain", correct_plane_data_3),
                           (data_3_yml, data_4_json, "stylish", correct_stylish_data_3),
                           (data_3_json, data_4_yml, "stylish", correct_stylish_data_3),
-                          (data_3_yml, data_4_json, "plane", correct_plane_data_3),
-                          (data_3_json, data_4_yml, "plane", correct_plane_data_3)])
+                          (data_3_yml, data_4_json, "plain", correct_plane_data_3),
+                          (data_3_json, data_4_yml, "plain", correct_plane_data_3)])
 def test_gendiff(data_1, data_2, format, result):
     correct_result = open(result).read()
     assert generate_diff(data_1, data_2, format) == correct_result

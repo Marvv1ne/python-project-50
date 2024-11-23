@@ -12,7 +12,7 @@ def generate_diff(first_file_name, second_file_name, format="stylish"):
     match format:
         case "stylish":
             return stylish_formater(tree)
-        case "plane":
+        case "plain":
             return plane_formater(tree).rstrip()
         case "json":
             return json_formater(tree)
