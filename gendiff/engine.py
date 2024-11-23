@@ -5,7 +5,7 @@ from .formaters.plane_formater import plane_formater
 from .formaters.json_formater import json_formater
 
 
-def generate_diff(first_file_name, second_file_name, format):
+def generate_diff(first_file_name, second_file_name, format=""stylish""):
     old_dict = file_reader(first_file_name)
     new_dict = file_reader(second_file_name)
     tree = make_tree(old_dict, new_dict)
