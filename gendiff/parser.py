@@ -2,25 +2,24 @@ import os
 import json
 import yaml
 
-from collections import ChainMap
 
 def converter(value):
     json_bools = {None: 'null', True: 'true', False: 'false'}
-    if type(value) == dict:
+    if isinstance(value, dict):
         return value
-    elif type(value) == str:
+    elif isinstance(value, str):
         return value
-    elif type(value) == bool:
+    elif isinstance(value, bool):
         return json_bools[value]
-    elif value == None:
+    elif value is None:
         return json_bools[value]
-    elif type(value) == int:
+    elif isinstance(value, int):
         return str(value)
-        
-        
+
 
 def get_suffix(file_name):
     return file_name.split('.')[-1]
+
 
 def file_reader(file_name):
     current_dir = os.path.join(os.getcwd(), file_name)
