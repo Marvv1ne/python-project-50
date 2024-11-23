@@ -1,6 +1,6 @@
 import pytest
 import os
-from gendiff.scripts.gendiff import generate_diff
+from gendiff.engine import generate_diff
 
 data_3_json = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file3.json')
 data_4_json = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file4.json')
