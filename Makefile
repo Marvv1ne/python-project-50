@@ -20,3 +20,5 @@ test:
 	poetry run pytest
 
 check: test lint
+
+full_ install: install build check publish package-install
