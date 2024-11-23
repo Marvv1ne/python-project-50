@@ -1,5 +1,5 @@
-from ..cli import args_parser
-from ..engine import generate_diff
+from gendiff.cli import args_parser
+from gendiff.engine import generate_diff
 
 
 def main():
