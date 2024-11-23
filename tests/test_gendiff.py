@@ -11,6 +11,7 @@ correct_stylish_data_3 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'stylish
 correct_plane_data_3 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'plane_result_3_4.txt')
 correct_json_data_3 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'result_3_4.json')
 
+
 @pytest.mark.parametrize("data_1, data_2, format, result",
                          [(data_3_json, data_4_json, "stylish", correct_stylish_data_3),
                           (data_3_yml, data_4_yml, "stylish", correct_stylish_data_3),
