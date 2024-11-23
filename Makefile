@@ -1,29 +1,30 @@
 install:
-	poetry install
+		poetry install
 
 gendiff:
-	poetry run gendiff
+		poetry run gendiff
 
 test:
-	poetry run pytest
+		poetry run pytest
 
 test-coverage:
 		poetry run pytest --cov=gendiff --cov-report xml
 
 publish:
-	poetry publish --dry-run
+		poetry publish --dry-run
 
 
 package-install:
-	pipx install dist/*.whl
+		pipx install dist/*.whl
 
-lint:
-	poetry run flake8 gendiff
+llint:
+		poetry run flake8 gendiff
 
-build:
-	poetry build
+selfcheck:
+		poetry check
 
-check: test lint
+check: selfcheck test lint
 
-full_ install: install build check publish package-install
+build: check
+		poetry build
 
