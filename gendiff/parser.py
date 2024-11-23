@@ -14,7 +14,7 @@ def converter(value):
     elif value is None:
         return json_bools[value]
     elif isinstance(value, int):
-        return str(value)
+        return value
 
 
 def get_suffix(file_name):
