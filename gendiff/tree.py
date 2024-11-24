@@ -60,7 +60,7 @@ def check_leaf(key, old_dict, new_dict):
         return {key: make_untouched_leaf(old_value)}
 
 
-def is_branch(key, old_dict, new_dict):
+def is_all_dict(key, old_dict, new_dict):
     if isinstance(old_dict, str) or isinstance(new_dict, str):
         return False
     old_value = get_value(key, old_dict)
@@ -73,7 +73,7 @@ def make_tree(old_dict, new_dict):
     all_keys = sorted(ChainMap(old_dict, new_dict))
 
     for key in all_keys:
-        if not is_branch(key, old_dict, new_dict):
+        if not is_all_dict(key, old_dict, new_dict):
             tree.update(check_leaf(key, old_dict, new_dict))
         else:
             o_dict = old_dict.get(key, dict())
