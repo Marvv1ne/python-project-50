@@ -1,5 +1,5 @@
 from ..tree import get_old_value, get_new_value, get_children
-from ..parser import converter
+from ..converter import converter
 
 
 def to_string(tree, depth=1):

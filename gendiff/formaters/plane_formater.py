@@ -1,5 +1,5 @@
 import os
-from ..parser import converter
+from ..converter import converter
 from ..tree import get_children, get_new_value, get_old_value
 
 
