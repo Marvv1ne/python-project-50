@@ -1,33 +1,14 @@
-import os
 import json
 import yaml
 
 
-def converter(value):
-    json_bools = {None: 'null', True: 'true', False: 'false'}
-    if isinstance(value, dict):
-        return value
-    elif isinstance(value, str):
-        return value
-    elif isinstance(value, bool):
-        return json_bools[value]
-    elif value is None:
-        return json_bools[value]
-    elif isinstance(value, int):
-        return value
-
-
-def get_suffix(file_name):
-    return file_name.split('.')[-1]
-
-
-def file_reader(file_name):
-    current_dir = os.path.join(os.getcwd(), file_name)
-    suffix = get_suffix(file_name)
-    match suffix:
+def parser(data, data_format):
+    match data_format:
         case 'json':
-            return json.load(open(current_dir))
+            return json.loads(data)
         case 'yaml':
-            return yaml.safe_load(open(current_dir))
+            return yaml.safe_load(data)
         case 'yml':
-            return yaml.safe_load(open(current_dir))
+            return yaml.safe_load(data)
+        case _:
+            raise ValueError("Invalid data format")
