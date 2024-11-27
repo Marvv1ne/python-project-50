@@ -28,10 +28,6 @@ def make_untouched_leaf(value):
     return mkleaf(old_value=value, new_value=value, status="untouched")
 
 
-def get_value(key, some_dict):
-    return some_dict.get(key, None)
-
-
 def get_old_value(some_dict):
     return some_dict.get("old_value", None)
 
@@ -48,8 +44,8 @@ def check_leaf(key, old_dict, new_dict):
     diff_old_new = old_dict.keys() - new_dict.keys()
     diff_new_old = new_dict.keys() - old_dict.keys()
     intersection = old_dict.keys() & new_dict.keys()
-    old_value = get_value(key, old_dict)
-    new_value = get_value(key, new_dict)
+    old_value = old_dict.get(key, None)
+    new_value = new_dict.get(key, None)
     if key in diff_old_new:
         return {key: make_deleted_leaf(old_value)}
     elif key in diff_new_old:
@@ -63,8 +59,8 @@ def check_leaf(key, old_dict, new_dict):
 def is_all_dict(key, old_dict, new_dict):
     if isinstance(old_dict, str) or isinstance(new_dict, str):
         return False
-    old_value = get_value(key, old_dict)
-    new_value = get_value(key, new_dict)
+    old_value = old_dict.get(key, None)
+    new_value = new_dict.get(key, None)
     return isinstance(old_value, dict) and isinstance(new_value, dict)
 
 
